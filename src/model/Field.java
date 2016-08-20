@@ -16,6 +16,9 @@ public class Field {
 
     @Override
     public String toString() {
-        return value + "";
+        if (value == 0) {
+            return "[ ]";
+        }
+        return "[" + value + "]";
     }
 }
