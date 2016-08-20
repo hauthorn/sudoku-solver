@@ -12,17 +12,28 @@ public class BoardValidatorTest extends ValidatorTest {
     public void isValid() throws Exception {
         assertTrue(BoardValidator.isValid(filledBoard()));
 
+        // Swap 1 and 3 in first quadrant
         Board sameValueInCol = filledBoard();
-        Quadrant quadrant = sameValueInCol.getQuadrants()[0][0];
-        Quadrant below = sameValueInCol.getQuadrants()[1][0];
-        int value
+        // Someone tampered with the board if this isn't true
+        assertEquals(3, sameValueInCol.getField(0, 0).getValue());
+        assertEquals(1, sameValueInCol.getField(2, 0).getValue());
+        sameValueInCol.setField(0, 0, 1);
+        sameValueInCol.setField(2, 0, 3);
 
         assertFalse(BoardValidator.isValid(sameValueInCol));
+
+        // Swap 3 and 6 in the first quadrant
+        Board sameValueInRow = filledBoard();
+        // Someone tampered with the board if this isn't true
+        assertEquals(3, sameValueInRow.getField(0, 0).getValue());
+        assertEquals(6, sameValueInRow.getField(0, 2).getValue());
+        sameValueInRow.setField(0, 0, 6);
+        sameValueInRow.setField(0, 2, 3);
+
+        assertFalse(BoardValidator.isValid(sameValueInRow));
     }
 
     private Board filledBoard() {
-        Board board = SudokuTextParser.parseBoardFromFile("Valid 01");
-        System.out.println(board);
-        return board;
+        return SudokuTextParser.parseBoardFromFile("Valid 01");
     }
 }
