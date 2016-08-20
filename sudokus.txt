@@ -1,4 +1,14 @@
-From https://projecteuler.net
+From https://projecteuler.net. I've added some of my own
+Valid 01
+391286574
+487359126
+652714839
+875431692
+213967485
+964528713
+149673258
+538142967
+726895341
 Grid 01
 003020600
 900305001
