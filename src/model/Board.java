@@ -1,9 +1,8 @@
 package model;
 
-import java.util.Arrays;
 
 public class Board {
-    Quadrant[][] quadrants;
+    private Quadrant[][] quadrants;
 
     public Board() {
         quadrants = new Quadrant[3][3];
@@ -25,7 +24,11 @@ public class Board {
         Quadrant quadrant = quadrants[quadrantCol][quadrantRow];
         int fieldCol = colIndex % 3;
         int fieldRow = rowIndex % 3;
-        return quadrant.fields[fieldCol][fieldRow];
+        return quadrant.getFields()[fieldCol][fieldRow];
+    }
+
+    public Quadrant[][] getQuadrants() {
+        return quadrants;
     }
 
     @Override
