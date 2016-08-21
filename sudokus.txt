@@ -1,4 +1,4 @@
-From https://projecteuler.net. I've added some of my own
+From https://projecteuler.net. Copyright Project Euler. I've added some of my own.
 Valid 01
 391286574
 487359126
