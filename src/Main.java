@@ -4,27 +4,26 @@ import solver.OnlyOptionStrategy;
 import solver.SolvesBoards;
 import validation.BoardValidator;
 
+import java.util.List;
+
 /**
- * Created by CHauthorn on 20-08-2016.
+ * The Main file that actually loads a bunch of boards and tries to solve them.
  */
 public class Main {
     public static void main(String[] args) {
-        Board board = SudokuTextParser.parseBoardFromFile("Grid 01");
-        System.out.println(board);
+        List<Board> boards = SudokuTextParser.parseBoardsFromFile();
+        System.out.println("Parsed " + boards.size() + " boards");
+        int solvedBoards = 0;
 
-        //OnlyOptionStrategy onlyOptionStrategy = new OnlyOptionStrategy();
-        //onlyOptionStrategy.solve(board);
-
-        SolvesBoards strategy = new OnlyOptionStrategy();
-        strategy.solve(board);
-
-        System.out.println(board);
-
-        if (BoardValidator.isValid(board)) {
-            System.out.println("Board has been solved!");
+        for (Board board: boards) {
+            System.out.println("Solving " + board);
+            SolvesBoards solver = new OnlyOptionStrategy();
+            solver.solve(board);
+            if (BoardValidator.isValid(board)) {
+                System.out.println("Solved!");
+                solvedBoards++;
+            }
         }
-        else {
-            System.out.println("Board hasn't been solved :(");
-        }
+        System.out.println("Solved " + solvedBoards + " boards out of " + boards.size());
     }
 }

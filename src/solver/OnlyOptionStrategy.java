@@ -13,7 +13,11 @@ public class OnlyOptionStrategy implements SolvesBoards {
     /**
      * Maintain the possible numbers that a Field can have
      */
-    private Map<Field, Set<Integer>> possibleNumbers = new HashMap<>();
+    private Map<Field, Set<Integer>> possibleNumbers;
+
+    public OnlyOptionStrategy() {
+        possibleNumbers = new HashMap<>();
+    }
 
     /**
      * Solves the board by passing through every field, and determining the possible options for this particular field
