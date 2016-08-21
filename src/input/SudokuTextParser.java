@@ -1,6 +1,7 @@
 package input;
 
 import model.Board;
+import model.Field;
 
 import java.io.*;
 
@@ -24,7 +25,11 @@ public class SudokuTextParser {
                         for (int j = 0; j < 9; j++) {
                             String symbol = gridLine.substring(j, j + 1);
                             int value = Integer.parseInt(symbol);
-                            board.setField(j, i, value);
+                            Field field = board.getField(j, i);
+                            field.setValue(value);
+                            if (value != 0) {
+                                board.getField(j, i).setFixed(true);
+                            }
                         }
                     }
                     return board;

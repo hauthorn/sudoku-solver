@@ -15,6 +15,7 @@ public class Quadrant {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 fields[i][j] = new Field();
+                fields[i][j].setQuadrant(this);
             }
         }
     }
