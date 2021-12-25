@@ -13,6 +13,18 @@ body {
   display: flex;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 .flex-space-between {
   justify-content: space-between;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }

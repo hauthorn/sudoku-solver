@@ -13,4 +13,12 @@ export class Field {
   public static e(): Field {
     return new Field(null, false);
   }
+
+  public toString(): string {
+    let space = ' ';
+    if (this.locked) {
+      space = '~'
+    }
+    return `${space}${this.value ?? '.'}${space}`;
+  }
 }

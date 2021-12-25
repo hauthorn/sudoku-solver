@@ -1,12 +1,42 @@
 <div class="wrapper">
-  <div class="sidebar">
+  <div class="sidebar flex flex-column">
     <h1>Sudoku Solver</h1>
+
     <mat-form-field>
       <mat-label>Board</mat-label>
       <mat-select [(value)]="board">
         <mat-option *ngFor="let b of boards" [value]="b">{{ b.name }}</mat-option>
       </mat-select>
     </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Algorithm</mat-label>
+      <mat-select [(value)]="algorithm">
+        <mat-option *ngFor="let a of algorithms" [value]="a">{{ a.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-label>Interval size: {{ intervalSize }}</mat-label>
+    <mat-slider color="primary"
+                min="1"
+                max="1000"
+                thumbLabel
+                step="10"
+                tickInterval="auto"
+                [(ngModel)]="intervalSize"></mat-slider>
+
+    <mat-label>Iterations per interval: {{ iterationsPerInterval }}</mat-label>
+    <mat-slider color="primary"
+                min="100"
+                max="2000"
+                thumbLabel
+                step="100"
+                tickInterval="auto"
+                [(ngModel)]="iterationsPerInterval"></mat-slider>
+
+    <button mat-raised-button color="primary" (click)="start()" *ngIf="subscription == null">Start</button>
+    <button mat-button (click)="stop()" *ngIf="subscription != null">Stop</button>
+    <button mat-button (click)="reset()">Reset</button>
   </div>
   <div class="square">
     <app-board [board]="board"></app-board>
