@@ -1,11 +1,13 @@
 import {Field} from "./field";
 
 export class Board {
+  readonly name: string;
   readonly fields: Field[][];
   readonly rows: number;
   readonly columns: number;
 
-  constructor(input: Field[][] = []) {
+  constructor(input: Field[][] = [], name: string = 'Blank') {
+    this.name = name;
     if (input.length != 0) {
       this.fields = input;
     } else {

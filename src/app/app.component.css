@@ -4,7 +4,8 @@
   justify-content: space-between;
 }
 .sidebar {
-
+  padding-top: 2em;
+  padding-left: 2em;
 }
 .square {
   width: 750px;
