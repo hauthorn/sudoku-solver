@@ -1,0 +1,10 @@
+<mat-grid-list cols="{{ board.columns}}">
+  <mat-grid-tile *ngFor="let field of board.fieldList">
+    <strong *ngIf="field.locked">
+      {{ field.value }}
+    </strong>
+    <span *ngIf="!field.locked">
+      {{ field.value }}
+    </span>
+  </mat-grid-tile>
+</mat-grid-list>

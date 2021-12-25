@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sidebar {
+
+}
+.square {
+  width: 750px;
+}

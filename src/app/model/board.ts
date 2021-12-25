@@ -22,6 +22,10 @@ export class Board {
     this.columns = this.fields[0].length;
   }
 
+  public get fieldList(): Array<Field> {
+    return this.fields.flatMap((row) => row);
+  }
+
   public get done(): boolean {
     return this.valid && this.filled;
   }
@@ -119,5 +123,12 @@ export class Board {
       }
     }
     return true;
+  }
+
+  public static row(val: number | null): Field[] {
+    if (val == null) {
+      return new Array(9).fill(Field.e());
+    }
+    return new Array(9).fill(Field.f(val));
   }
 }
