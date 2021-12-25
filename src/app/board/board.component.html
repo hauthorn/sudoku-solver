@@ -1,5 +1,14 @@
-<mat-grid-list cols="{{ board.columns}}">
-  <mat-grid-tile *ngFor="let field of board.fieldList" [ngClass]="{ locked: field.locked}">
-    {{ field.value }}
-  </mat-grid-tile>
-</mat-grid-list>
+<div>
+  <mat-grid-list cols="{{ board.columns}}">
+    <mat-grid-tile *ngFor="let field of board.fieldList" [ngClass]="{ locked: field.locked}">
+      {{ field.value }}
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <div class="flex flex-space-between">
+    <p>Valid: {{ board.valid }}</p>
+    <p>Filled: {{ board.filled }}</p>
+    <p>Done: {{ board.done }}</p>
+  </div>
+</div>
+
