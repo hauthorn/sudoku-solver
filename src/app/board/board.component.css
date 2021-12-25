@@ -1,3 +1,10 @@
 mat-grid-tile {
   outline: 1px solid black;
+  color: blue;
 }
+
+.locked {
+  color: black;
+}
+
+
