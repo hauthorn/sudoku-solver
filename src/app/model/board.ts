@@ -84,20 +84,7 @@ export class Board {
     }
 
     // each group unique?
-    let groups = [
-      // top
-      [0, 2, 0, 2],
-      [3, 5, 0, 2],
-      [6, 8, 0, 2],
-      // middle
-      [0, 2, 3, 5],
-      [3, 5, 3, 5],
-      [6, 8, 3, 5],
-      // bottom
-      [0, 2, 6, 8],
-      [3, 5, 6, 8],
-      [6, 8, 6, 8],
-    ];
+    const groups = Board.groups();
 
     for (let index in groups) {
       let group = groups[index];
@@ -108,6 +95,7 @@ export class Board {
     }
     return true;
   }
+
 
   private groupValid(xStart: number, xEnd: number, yStart: number, yEnd: number): boolean {
     let numbersPresent = new Array<boolean>(this.rows);
@@ -127,10 +115,52 @@ export class Board {
     return true;
   }
 
-  public static row(val: number | null): Field[] {
-    if (val == null) {
-      return new Array(9).fill(Field.e());
-    }
-    return new Array(9).fill(Field.f(val));
+  public static groups() {
+    return [
+      // top
+      [0, 2, 0, 2],
+      [3, 5, 0, 2],
+      [6, 8, 0, 2],
+      // middle
+      [0, 2, 3, 5],
+      [3, 5, 3, 5],
+      [6, 8, 3, 5],
+      // bottom
+      [0, 2, 6, 8],
+      [3, 5, 6, 8],
+      [6, 8, 6, 8],
+    ];
+  }
+
+  public static easy(): Board {
+    return new Board([
+      [Field.l(5), Field.e(), Field.e(), Field.e(), Field.e(), Field.l(8), Field.e(), Field.e(), Field.l(3),],
+      [Field.l(8), Field.l(3), Field.e(), Field.l(9), Field.l(4), Field.l(6), Field.e(), Field.e(), Field.l(7),],
+      [Field.e(), Field.l(7), Field.l(2), Field.l(1), Field.l(3), Field.e(), Field.l(9), Field.e(), Field.e(),],
+
+      [Field.l(1), Field.e(), Field.l(7), Field.l(6), Field.l(9), Field.e(), Field.e(), Field.l(3), Field.l(2),],
+      [Field.e(), Field.e(), Field.e(), Field.l(8), Field.e(), Field.l(2), Field.e(), Field.e(), Field.e(),],
+      [Field.e(), Field.l(8), Field.e(), Field.l(3), Field.l(5), Field.e(), Field.e(), Field.l(9), Field.l(6),],
+
+      [Field.l(4), Field.e(), Field.l(5), Field.e(), Field.e(), Field.l(9), Field.e(), Field.l(7), Field.l(8),],
+      [Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.l(1), Field.e(), Field.l(2), Field.e(),],
+      [Field.e(), Field.l(2), Field.e(), Field.l(4), Field.l(7), Field.e(), Field.l(5), Field.e(), Field.e(),],
+    ], 'Easy');
+  }
+
+  public static evil(): Board {
+    return new Board([
+      [Field.e(), Field.e(), Field.e(), Field.l(1), Field.e(), Field.e(), Field.e(), Field.l(8), Field.e(),],
+      [Field.l(5), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.l(2), Field.e(),],
+      [Field.e(), Field.e(), Field.l(7), Field.e(), Field.l(4), Field.e(), Field.l(1), Field.e(), Field.l(5),],
+
+      [Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.l(1), Field.e(),],
+      [Field.l(8), Field.e(), Field.e(), Field.l(4), Field.e(), Field.e(), Field.l(6), Field.e(), Field.l(9),],
+      [Field.e(), Field.l(3), Field.e(), Field.e(), Field.l(7), Field.e(), Field.e(), Field.e(), Field.e(),],
+
+      [Field.l(9), Field.e(), Field.e(), Field.l(6), Field.e(), Field.e(), Field.l(5), Field.e(), Field.l(4),],
+      [Field.e(), Field.e(), Field.l(8), Field.e(), Field.e(), Field.l(9), Field.e(), Field.e(), Field.e(),],
+      [Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.l(2),],
+    ], 'Evil');
   }
 }
