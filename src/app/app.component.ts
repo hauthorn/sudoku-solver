@@ -69,17 +69,6 @@ export class AppComponent {
   }
 
   private static getBoards(): Array<Board> {
-    let grid = new Board([
-      [Field.f(1), Field.f(2), Field.l(3), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(),],
-      [Field.l(4), Field.l(5), Field.l(6), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(),],
-      [Field.l(7), Field.l(8), Field.f(9), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(),],
-      Board.row(null),
-      Board.row(null),
-      Board.row(null),
-      Board.row(null),
-      Board.row(null),
-      Board.row(null),
-    ], 'Single Group Filled');
     let empty = new Board;
     let easy = new Board([
       [Field.l(5), Field.e(), Field.e(), Field.e(), Field.e(), Field.l(8), Field.e(), Field.e(), Field.l(3),],
@@ -94,11 +83,24 @@ export class AppComponent {
       [Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.l(1), Field.e(), Field.l(2), Field.e(),],
       [Field.e(), Field.l(2), Field.e(), Field.l(4), Field.l(7), Field.e(), Field.l(5), Field.e(), Field.e(),],
     ], 'Easy');
+    let evil = new Board([
+      [Field.e(), Field.e(), Field.e(), Field.l(1), Field.e(), Field.e(), Field.e(), Field.l(8), Field.e(),],
+      [Field.l(5), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.l(2), Field.e(),],
+      [Field.e(), Field.e(), Field.l(7), Field.e(), Field.l(4), Field.e(), Field.l(1), Field.e(), Field.l(5),],
+
+      [Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.l(1), Field.e(),],
+      [Field.l(8), Field.e(), Field.e(), Field.l(4), Field.e(), Field.e(), Field.l(6), Field.e(), Field.l(9),],
+      [Field.e(), Field.l(3), Field.e(), Field.e(), Field.l(7), Field.e(), Field.e(), Field.e(), Field.e(),],
+
+      [Field.l(9), Field.e(), Field.e(), Field.l(6), Field.e(), Field.e(), Field.l(5), Field.e(), Field.l(4),],
+      [Field.e(), Field.e(), Field.l(8), Field.e(), Field.e(), Field.l(9), Field.e(), Field.e(), Field.e(),],
+      [Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.e(), Field.l(2),],
+    ], 'Evil');
 
     return [
       easy,
       empty,
-      grid,
+      evil,
     ];
   }
 }
